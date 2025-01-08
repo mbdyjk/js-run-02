@@ -31,6 +31,22 @@
 
 function groupBy(arr, key) {
   // 여기에 코드를 작성하세요.
+  const answer = {};
+
+  arr.forEach(obj => {
+    const value = obj[key];
+
+    // value가 숫자, undefined일 경우 대비
+    const stringValue = String(value);
+
+    if (!answer[stringValue]) {
+      answer[stringValue] = []; // 새 배열에 "stringValue"에 해당하는 key가 없으면 생성
+    }
+
+    answer[stringValue].push(obj);
+  });
+
+  return answer;
 }
 
 // export를 수정하지 마세요.

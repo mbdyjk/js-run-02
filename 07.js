@@ -24,7 +24,12 @@
  */
 
 // TODO: get20sEmail 함수를 작성하세요.
-function get20sEmail() {}
+function get20sEmail(people)
+{
+    return people.filter(p => p.age >= 20 && p. age < 30) // 20대인 사람 고르기
+                .sort((a,b) => a.age - b.age) // 나이순 정렬
+                .map(p => p.email); // 이메일 배열로 변환환
+}
 
 // export를 수정하지 마세요.
 export { get20sEmail };

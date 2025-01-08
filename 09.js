@@ -12,7 +12,20 @@
 
 // TODO: calculateStatistics 함수를 작성하세요.
 function calculateStatistics(users) {
+  // 빈 배열이 들어왔을 떄 처리리
+  if(users.length === 0){
+    return {averageAge: 0, maxAge: 0};
+  }
   // TODO
+  const data = users.reduce((acc, person) => {
+    acc.totalAge += person.age;
+    acc.maxAge = Math.max(acc.maxAge, person.age);
+    return acc;
+  }, { totalAge: 0, maxAge: -Infinity });
+  
+  const averageAge = data.totalAge / users.length;
+  const maxAge = data.maxAge;
+  return {averageAge, maxAge};
 }
 
 // export를 수정하지 마세요.
